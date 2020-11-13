@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AndroidHangman.MainPage">
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Text="Welcome to Hangman game!" x:Name="Welcome" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" />
+            <Button Grid.Column="0" Grid.Row="1" Text="Start the Game!" x:Name="btnGame" HorizontalOptions="Center" VerticalOptions="Center" Clicked="StartGame_Clicked" FontSize="Medium" ScaleX="1.4" />
+            <Button Grid.Column="0" Grid.Row="2" Text="Instructions" x:Name="btnInst" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Instruction_Clicked" FontSize="Medium" ScaleX="1.4" />
+            <Button Grid.Column="0" Grid.Row="3" Text="Profile" x:Name="btnProf" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Profile_Clicked" FontSize="Medium" ScaleX="1.4" />
+            <Button Grid.Column="0" Grid.Row="4" Text="DB / Extra" x:Name="btnDB" HorizontalOptions="Center" VerticalOptions="Center" Clicked="DB_Clicked" FontSize="Medium" ScaleX="1.4" />
+            <Button Grid.Column="0" Grid.Row="5" Text="Exit" x:Name="btnExit" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Exit_Clicked" FontSize="Medium" ScaleX="1.4" />
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>
