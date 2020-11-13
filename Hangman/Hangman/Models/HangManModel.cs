@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using SQLite;
 
 namespace Hangman
 {
@@ -11,6 +12,7 @@ namespace Hangman
         {
         }
 
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string NameOfPlayer { get; set; }
         public string Difficulty { get; set; }
