@@ -28,17 +28,12 @@ namespace AndroidHangman.Pages
         }
         private void Create_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DBPage());
-        }
-
-        private void Select_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ExitPage());
+            
         }
 
         private void Avatar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LevelPage());
+            
         }
     }
 }
