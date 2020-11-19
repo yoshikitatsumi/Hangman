@@ -26,31 +26,31 @@ namespace Hangman
             label[4] = MyLabel5;
 
         }
-        //public ImageSource Source { get; set; }
-        //public string Temp;
-        //public string Word = "tiger";
-        //public int Times = 1;
+        public ImageSource Source { get; set; }
+        public string Temp;
+        public string Word = "tiger";
+        public int Times = 1;
         public void OnButtonClicked(object sender, EventArgs args)
             {
-                //    char[] arr = Word.ToCharArray();
-                //    for (int n = 0; n < Word.Length; n++)
-                //    {
-                //        Temp = ((Button)sender).Text;
-                //        ((Button)sender).IsEnabled = false;
-                //        if (Convert.ToChar(Temp) == arr[n])
-                //        {
-                //            label[n].Text = Temp;
-                //        }
-                //        else
-                //        {
-                //            Picture.Source = "/Resources/drawable/HME0" + Times + ".png";
-                //            Times = Times + 1;
-                //        }
-                //        //Times = Times - n;
+            char[] arr = Word.ToCharArray();
+            for (int n = 0; n < Word.Length; n++)
+            {
+                Temp = ((Button)sender).Text;
+                ((Button)sender).IsEnabled = false;
+                if (Convert.ToChar(Temp) == arr[n])
+                {
+                    label[n].Text = Temp;
+                }
+                else
+                {
+                    Picture.Source = "/Resources/drawable/HME0" + Times + ".png";
+                    Times = Times + 1;
+                }
+                Times = Times - n;
 
             }
 
-        //}
+        }
 
     }
 }
