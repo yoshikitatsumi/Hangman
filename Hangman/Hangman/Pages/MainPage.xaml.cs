@@ -95,7 +95,7 @@ namespace Hangman
 
         private void Exit_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ExitPage());
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
         public void StartGame_Clicked(object sender, EventArgs e)
