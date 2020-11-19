@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using SQLite;
 using System.Threading.Tasks;
+using System.Linq;
+using SQLiteNetExtensionsAsync.Extensions;
 
 namespace Hangman.Data
 {
@@ -13,8 +15,38 @@ namespace Hangman.Data
         public HangmanDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
+            _database.CreateTableAsync<PlayerModel>().Wait();
             _database.CreateTableAsync<HangmanModel>().Wait();
             _database.CreateTableAsync<WordsModel>().Wait();
+        }
+
+        public Task<List<PlayerModel>> GetPlayersAsync()
+        {
+            return _database.Table<PlayerModel>().ToListAsync();
+        }
+
+        public Task<PlayerModel> GetPlayerAsync(int id)
+        {
+            return _database.Table<PlayerModel>()
+                            .Where(i => i.Id == id)
+                            .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SavePlayerAsync(PlayerModel player)
+        {
+            if (player.Id != 0)
+            {
+                return _database.UpdateAsync(player);
+            }
+            else
+            {
+                return _database.InsertAsync(player);
+            }
+        }
+
+        public Task<int> DeletePlayerAsync(PlayerModel player)
+        {
+            return _database.DeleteAsync(player);
         }
 
         public Task<List<HangmanModel>> GetHangmansAsync()
@@ -33,11 +65,29 @@ namespace Hangman.Data
         {
             if (hangman.Id != 0)
             {
-                return _database.UpdateAsync(hangman);
+                _database.UpdateAsync(hangman).Wait();
+                if (hangman.childPlayerModel != null)
+                {
+                    _database.UpdateAsync(hangman);
+                    return (Task<int>)_database.UpdateWithChildrenAsync(hangman);
+                }
+                else
+                {
+                    return _database.UpdateAsync(hangman);
+                }
+
             }
             else
             {
-                return _database.InsertAsync(hangman);
+                if (hangman.childPlayerModel != null)
+                {
+                    _database.InsertAsync(hangman);
+                    return (Task<int>)_database.UpdateWithChildrenAsync(hangman);
+                }
+                else
+                {
+                    return _database.InsertAsync(hangman);
+                }
             }
         }
 
@@ -60,6 +110,7 @@ namespace Hangman.Data
 
         public Task<int> SaveWordAsync(WordsModel word)
         {
+
             if (word.Id != 0)
             {
                 return _database.UpdateAsync(word);
@@ -68,12 +119,68 @@ namespace Hangman.Data
             {
                 return _database.InsertAsync(word);
             }
+
         }
+
+        public Task<WordsModel> GetRandomWordDBAsync()
+        {
+            var random = new Random();
+            List<int> Ids = new List<int>();
+            Ids = GetWordsAsync().Result.Select(itm => itm.Id).ToList();
+
+            int index = random.Next(Ids.Count + 1);
+
+            if (Ids.Count > 0)
+            {
+                Console.WriteLine("***************************************");
+                Console.WriteLine(Ids.Count);
+                Console.WriteLine(index);
+                Console.WriteLine("***************************************");
+                var word = GetWordAsync(Ids[index]);
+
+                return word;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        //public Task<List<WordsModel>> GetRandomWordDBAsync()
+        //{
+        //    // Website name: MySQLTUTORIAL
+        //    // Title: MySQL Select Random Records
+        //    // URL: https://www.mysqltutorial.org/select-random-records-database-table.aspx
+        //    return _database.QueryAsync<WordsModel>("SELECT Word FROM WordsModel ORDER BY random() LIMIT 1");
+        //}
+
+        /*
+        public Task<List<WordsModel>> GetRandomWordDBAsync()
+        {
+            // Website name: MySQLTUTORIAL
+            // Title: MySQL Select Random Records
+            // URL: https://www.mysqltutorial.org/select-random-records-database-table.aspx
+            //Random rnd = new Random();
+            //rnd.Next();
+            return _database.QueryAsync<WordsModel>("SELECT `Word` FROM `WordsModel` ORDER BY random() LIMIT 1");
+        }
+        */
+
+        /*
+        public Task<List<WordsModel>> GetRandomWordDBAsync()
+        {
+            // Website name: MySQLTUTORIAL
+            // Title: MySQL Select Random Records
+            // URL: https://www.mysqltutorial.org/select-random-records-database-table.aspx
+            //https://www.sqlitetutorial.net/sqlite-functions/sqlite-random/
+            return _database.QueryAsync<WordsModel>("SELECT Word FROM WordsModel ORDER BY random() LIMIT 1");
+        }
+        */
 
         public Task<int> DeleteWordAsync(WordsModel word)
         {
             return _database.DeleteAsync(word);
+            //return _database.DeleteAllAsync<WordsModel>();
         }
-
     }
 }
