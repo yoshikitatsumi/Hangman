@@ -1,13 +1,13 @@
-﻿using AndroidHangman.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
 
-namespace AndroidHangman
+namespace Hangman
 {
     public partial class MainPage : ContentPage
     {
@@ -15,6 +15,7 @@ namespace AndroidHangman
         {
             InitializeComponent();
 
+            //Message and five buttons as btnGame, btnInst, btnProf, btnDB, btnExit.
             Label Welcome = new Label
             {
                 Text = "Welcome to Hangman game!",
@@ -28,7 +29,6 @@ namespace AndroidHangman
                 TextColor = Color.Red
             };
             btnGame.Clicked += StartGame_Clicked;
-
             Button btnInst = new Button
             {
                 Text = "Instructions",
@@ -56,28 +56,25 @@ namespace AndroidHangman
                 FontSize = 25,
                 TextColor = Color.Black
             };
+            btnExit.Clicked += Exit_Clicked;
             Content = new StackLayout
             {
                 Children =
-            {
-                Welcome,
-                new StackLayout
                 {
-                    HorizontalOptions = LayoutOptions.Center,
-                    Children =
+                    Welcome,
+                    new StackLayout
                     {
-                        btnGame,
-                        btnInst,
-                        btnProf,
-                        btnDB,
-                        btnExit,
+                        HorizontalOptions = LayoutOptions.Center,
+                        Children =
+                        {
+                            btnGame,
+                            btnInst,
+                            btnProf,
+                            btnDB,
+                            btnExit,
+                        }
                     }
-
-
                 }
-
-            }
-
             };
         }
         private void Instruction_Clicked(object sender, EventArgs e)
@@ -89,15 +86,17 @@ namespace AndroidHangman
         {
             Navigation.PushAsync(new ProfilePage());
         }
+
         private void DB_Clicked(object sender, EventArgs e)
         {
+            //DBPage will be created.
             //Navigation.PushAsync(new DBPage());
         }
 
-        //private void Exit_Clicked(object sender, EventArgs e)
-        //{
-        //    Navigation.PushAsync(new ExitPage());
-        //}
+        private void Exit_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ExitPage());
+        }
 
         public void StartGame_Clicked(object sender, EventArgs e)
         {
