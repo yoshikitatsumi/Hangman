@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.Android", "Hangman\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.iOS", "Hangman\Hangman.iOS\Hangman.iOS.csproj", "{1655F427-D97B-4053-B603-0E1EEFCB652E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman\Hangman\Hangman.csproj", "{99E68C03-853F-405C-A978-6F5A5199C9EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangman", "Hangman\Hangman\Hangman.csproj", "{99E68C03-853F-405C-A978-6F5A5199C9EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
