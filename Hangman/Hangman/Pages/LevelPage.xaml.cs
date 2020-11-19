@@ -38,20 +38,20 @@ namespace AndroidHangman.Pages
 
         private void BtnHard_Clicked(object sender, EventArgs e)
         {
-            var gamepage = new GamePage();
-            Navigation.PushAsync(new GamePage());
+            //var gamepage = new GamePage();
+           // Navigation.PushAsync(new GamePage());
         }
 
         private void BtnMed_Clicked(object sender, EventArgs e)
         {
-            var gamepage = new GamePage();
-            Navigation.PushAsync(new GamePage());
+            //var gamepage = new GamePage();
+            //Navigation.PushAsync(new GamePage());
         }
 
         private void BtnEasy_Clicked(object sender, EventArgs e)
         {
-            var gamepage = new GamePage();
-            Navigation.PushAsync(new GamePage());
+            //var gamepage = new GamePage();
+            //Navigation.PushAsync(new GamePage());
         }
     }
 }
