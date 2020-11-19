@@ -26,7 +26,7 @@ namespace Hangman
             label[4] = MyLabel5;
 
         }
-        public ImageSource Source { get; set; }
+        //public ImageSource Source { get; set; }
         public string Temp;
         public string Word = "tiger";
         public int Times = 1;
@@ -43,7 +43,7 @@ namespace Hangman
                 }
                 else
                 {
-                    Picture.Source = "/Resources/drawable/HME0" + Times + ".png";
+                    //Picture.Source = "/Resources/drawable/HME0" + Times + ".png";
                     Times = Times + 1;
                 }
                 Times = Times - n;
