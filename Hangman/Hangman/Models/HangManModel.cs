@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
+
 
 namespace Hangman
 {
@@ -20,5 +22,9 @@ namespace Hangman
         public int Score { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead)]
+        public PlayerModel childPlayerModel { get; set; }
     }
 }
+
