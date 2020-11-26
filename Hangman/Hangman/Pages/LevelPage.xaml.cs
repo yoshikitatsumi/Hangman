@@ -15,13 +15,29 @@ namespace Hangman
         {
             InitializeComponent();
 
+            BoxView BoxLine = new BoxView
+            {
+
+                Color = Color.Chocolate
+
+            };
 
             Label Level = new Label
             {
                 Text = "Here are levels to choose!",
                 TextColor = Color.Blue,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
                 FontSize = 25
             };
+            
+            BoxView BoxLine2 = new BoxView
+            {
+               
+                Color = Color.Chocolate
+                
+            };
+
             Button btnEasy = new Button
             {
                 Text = "Easy",
@@ -45,12 +61,14 @@ namespace Hangman
                 TextColor = Color.Red
             };
             btnHard.Clicked += btnHard_Clicked;
-            
+
             Content = new StackLayout
             {
                 Children =
                 {
+                    BoxLine,
                     Level,
+                    BoxLine2,
                     new StackLayout
                     {
                         HorizontalOptions = LayoutOptions.Center,
@@ -68,16 +86,21 @@ namespace Hangman
         private void btnHard_Clicked(object sender, EventArgs e)
         {
             string level = "Hard";
+            BindingContext = level;
             Navigation.PushAsync(new HangManPage());
         }
 
         private void btnMed_Clicked(object sender, EventArgs e)
         {
+            string level = "Medium";
+            BindingContext = level;
             Navigation.PushAsync(new HangManPage());
         }
 
         private void btnEasy_Clicked(object sender, EventArgs e)
         {
+            string level = "Easy";
+            BindingContext = level;
             Navigation.PushAsync(new HangManPage());
         }
     }

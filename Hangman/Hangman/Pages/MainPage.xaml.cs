@@ -16,11 +16,27 @@ namespace Hangman
             InitializeComponent();
 
             //Message and five buttons as btnGame, btnInst, btnProf, btnDB, btnExit.
+
+            BoxView BoxLine = new BoxView
+            {
+
+                Color = Color.DarkGreen
+
+            };
+
             Label Welcome = new Label
             {
                 Text = "Welcome to Hangman game!",
                 TextColor = Color.Blue,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
                 FontSize = 25
+            };
+            BoxView BoxLine2 = new BoxView
+            {
+
+                Color = Color.DarkGreen
+
             };
             Button btnGame = new Button
             {
@@ -40,7 +56,7 @@ namespace Hangman
             {
                 Text = "Profile",
                 FontSize = 25,
-                TextColor = Color.Yellow
+                TextColor = Color.Blue
             };
             btnProf.Clicked += Profile_Clicked;
             Button btnDB = new Button
@@ -61,7 +77,9 @@ namespace Hangman
             {
                 Children =
                 {
+                    BoxLine,
                     Welcome,
+                    BoxLine2,
                     new StackLayout
                     {
                         HorizontalOptions = LayoutOptions.Center,
@@ -90,7 +108,7 @@ namespace Hangman
         private void DB_Clicked(object sender, EventArgs e)
         {
             //DBPage will be created.
-            //Navigation.PushAsync(new DBPage());
+            Navigation.PushAsync(new GameOverPage());
         }
 
         private void Exit_Clicked(object sender, EventArgs e)
