@@ -17,6 +17,7 @@ namespace Hangman
 
             //Message and five buttons as btnGame, btnInst, btnProf, btnDB, btnExit.
 
+            // Color line.
             BoxView BoxLine = new BoxView
             {
 
@@ -24,6 +25,7 @@ namespace Hangman
 
             };
 
+            // Welcome message
             Label Welcome = new Label
             {
                 Text = "Welcome to Hangman game!",
@@ -32,12 +34,16 @@ namespace Hangman
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 25
             };
+
+            // Color line.
             BoxView BoxLine2 = new BoxView
             {
 
                 Color = Color.DarkGreen
 
             };
+
+            // Game button as btnGame
             Button btnGame = new Button
             {
                 Text = "Start the Game!",
@@ -45,6 +51,8 @@ namespace Hangman
                 TextColor = Color.Red
             };
             btnGame.Clicked += StartGame_Clicked;
+
+            // Instruction button as btnInst
             Button btnInst = new Button
             {
                 Text = "Instructions",
@@ -52,6 +60,8 @@ namespace Hangman
                 TextColor = Color.Green
             };
             btnInst.Clicked += Instruction_Clicked;
+
+            // Profile button as btnProf
             Button btnProf = new Button
             {
                 Text = "Profile",
@@ -59,6 +69,8 @@ namespace Hangman
                 TextColor = Color.Blue
             };
             btnProf.Clicked += Profile_Clicked;
+
+            // DB button as btnDB
             Button btnDB = new Button
             {
                 Text = "DB / Extra",
@@ -66,6 +78,8 @@ namespace Hangman
                 TextColor = Color.Gray
             };
             btnDB.Clicked += DB_Clicked;
+
+            // Exit button as btnExit
             Button btnExit = new Button
             {
                 Text = "Exit",
@@ -73,6 +87,7 @@ namespace Hangman
                 TextColor = Color.Black
             };
             btnExit.Clicked += Exit_Clicked;
+
             Content = new StackLayout
             {
                 Children =
@@ -110,6 +125,7 @@ namespace Hangman
             Navigation.PushAsync(new WordsCRUDPage());
         }
 
+        // Exit button to kill
         private void Exit_Clicked(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();

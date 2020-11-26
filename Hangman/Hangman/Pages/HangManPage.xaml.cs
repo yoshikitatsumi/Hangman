@@ -28,7 +28,7 @@ namespace Hangman
 
             Grid myGrid = new Grid();
 
-            // Color line.
+            // Score box background
             BoxView scoreBox = new BoxView
             {
                 Color = Color.Purple
@@ -60,7 +60,7 @@ namespace Hangman
             Grid.SetRow(GAttempt, 0);
             Grid.SetColumnSpan(GAttempt, 7);
 
-            // Color line
+            // Image box background
             BoxView imageBox = new BoxView
             {
                 Color = Color.Black
@@ -78,7 +78,7 @@ namespace Hangman
             Grid.SetRowSpan(HMimage, 3);
             Grid.SetColumnSpan(HMimage, 7);
 
-            // Color line
+            // Letter box as background
             BoxView letterBox = new BoxView
             {
                 Color = Color.Purple
