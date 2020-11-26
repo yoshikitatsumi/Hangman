@@ -33,7 +33,7 @@ namespace Hangman
                 TextColor = Color.Red,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                FontSize = 25
+                FontSize = 40
             };
 
             // Color line.
@@ -92,6 +92,7 @@ namespace Hangman
                 Children =
                 {
                     BoxLine,
+                    Welcome,
                     GOName,
                     GOLevel,
                     GOscore,

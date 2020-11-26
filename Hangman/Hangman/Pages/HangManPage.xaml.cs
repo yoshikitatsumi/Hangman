@@ -130,7 +130,7 @@ namespace Hangman
             // Gem Button as HMGem
             Button HMGem = new Button
             {
-                ImageSource = "HMGem.jpg",
+                ImageSource = "HMGem.png",
                 HorizontalOptions = LayoutOptions.End,
                 VerticalOptions = LayoutOptions.Center,
                 
@@ -152,7 +152,7 @@ namespace Hangman
 
         }
 
-        // Button navigations
+
         private void HMGem_Clicked(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
