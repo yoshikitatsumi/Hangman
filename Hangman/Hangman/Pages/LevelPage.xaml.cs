@@ -15,6 +15,7 @@ namespace Hangman
         {
             InitializeComponent();
 
+            // Color line.
             BoxView BoxLine = new BoxView
             {
 
@@ -22,6 +23,7 @@ namespace Hangman
 
             };
 
+            // Message
             Label Level = new Label
             {
                 Text = "Here are levels to choose!",
@@ -30,7 +32,8 @@ namespace Hangman
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 25
             };
-            
+
+            // Color line.
             BoxView BoxLine2 = new BoxView
             {
                
@@ -38,6 +41,7 @@ namespace Hangman
                 
             };
 
+            // Easy button as btnEasy
             Button btnEasy = new Button
             {
                 Text = "Easy",
@@ -46,6 +50,7 @@ namespace Hangman
             };
             btnEasy.Clicked += btnEasy_Clicked;
 
+            // Medium button as btnMed
             Button btnMed = new Button
             {
                 Text = "Medium",
@@ -54,6 +59,7 @@ namespace Hangman
             };
             btnMed.Clicked += btnMed_Clicked;
 
+            // Hard button as btnHard
             Button btnHard = new Button
             {
                 Text = "Hard",
@@ -83,6 +89,7 @@ namespace Hangman
             };
         }
 
+        // Button navigations
         private void btnHard_Clicked(object sender, EventArgs e)
         {
             string level = "Hard";

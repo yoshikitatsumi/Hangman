@@ -110,6 +110,8 @@ namespace Hangman
                 }
             };
         }
+
+        // Button navigations
         private void Instruction_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new InstructionPage());

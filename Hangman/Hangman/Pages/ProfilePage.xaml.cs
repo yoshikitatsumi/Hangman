@@ -13,6 +13,10 @@ namespace Hangman
     public partial class ProfilePage : ContentPage
     {
 
+        // Setting public ints.
+        public int score = 0;
+        public int gem = 0;
+
         public ProfilePage()
         {
             InitializeComponent();
@@ -21,31 +25,34 @@ namespace Hangman
             int gender = 1;
             Image avatar = new Image
             {
-                Source = "/Resources/drawable/Avatar" + gender + ".jpg"
+                Source = "Avatar" + gender + ".jpg"
             };
-            //setting Labels of Player Name and User Name as PName and UName, Score and Gems as UScore at 0 and UGems at 0,
+            //setting Labels of Player Name and User Name as PName and UName, Score and Gems as UScore at 0 and UGems at 0.
+
             Label PName = new Label
             {
                 Text = "",
                 FontSize = 15,
                 TextColor = Color.DarkBlue
             };
+
             Label UName = new Label
             {
                 Text = "",
                 FontSize = 15,
                 TextColor = Color.DarkBlue
             };
-            int score = 0;
+
             Label UScore = new Label
             {
                 Text = "Score: " + Convert.ToString(score),
                 FontSize = 20,
                 TextColor = Color.Orange
             };
+
             Label UGems = new Label
             {
-                Text = "Gems: 0",
+                Text = "Gems: " + Convert.ToString(gem),
                 FontSize = 20,
                 TextColor = Color.Green
             };
@@ -86,6 +93,8 @@ namespace Hangman
             };
 
         }
+
+        // Button navigations
         private void Save_Clicked(object sender, EventArgs e)
         {
             //Navigation.PushAsync(new SavePage());
