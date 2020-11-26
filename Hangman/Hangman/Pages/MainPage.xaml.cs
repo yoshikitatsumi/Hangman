@@ -107,8 +107,7 @@ namespace Hangman
 
         private void DB_Clicked(object sender, EventArgs e)
         {
-            //DBPage will be created.
-            Navigation.PushAsync(new GameOverPage());
+            Navigation.PushAsync(new WordsCRUDPage());
         }
 
         private void Exit_Clicked(object sender, EventArgs e)
